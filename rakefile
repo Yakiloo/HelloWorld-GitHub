@@ -1,0 +1,12 @@
+require "rake"
+require "rake/rdoctask"
+require "rspec/core/rake_task"
+require "rspec/core/version"
+
+RSpec::Core::RakeTask.new(:test) do |t|
+	t.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb"]
+	t.pattern = 'spec/*_spec.rb'
+end
+
+#task :default => [:test]
+multitask :default => [:test]
